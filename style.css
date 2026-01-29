@@ -1,6 +1,7 @@
 :root {
   --gold: #d4af37;
   --deep-brown: #2c1810;
+  --darker-brown: #1a0e09;
   --cream: #fdf5e6;
   --accent-gold: #c5a028;
 }
@@ -15,16 +16,76 @@ body {
   background-color: var(--deep-brown);
   color: var(--cream);
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+section {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
+  padding: 60px 20px;
   position: relative;
 }
 
-body::before {
+.bg-brown {
+  background-color: var(--deep-brown);
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+}
+
+.bg-brown-dark {
+  background-color: var(--darker-brown);
+  background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
+}
+
+.content-split {
+  display: flex;
+  align-items: center;
+  max-width: 1100px;
+  gap: 50px;
+  width: 100%;
+}
+
+.content-split.reverse {
+  flex-direction: row-reverse;
+}
+
+.image-side {
+  flex: 1;
+}
+
+.image-side img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.text-side {
+  flex: 1;
+}
+
+.section-title {
+  font-family: "Cinzel", serif;
+  color: var(--gold);
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.small-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 25px;
+}
+
+.text-side p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #e0d5c1;
+}
+
+.hero-section::before {
   content: "";
   position: absolute;
   top: 0;
@@ -35,7 +96,6 @@ body::before {
     url("image3.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   z-index: -1;
 }
 
@@ -44,9 +104,8 @@ body::before {
   max-width: 600px;
   width: 100%;
   border: 1px solid rgba(212, 175, 55, 0.4);
-  background: rgba(44, 24, 16, 0.8);
+  background: rgba(44, 24, 16, 0.85);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   padding: 50px 30px;
@@ -62,24 +121,18 @@ body::before {
   font-size: 0.8rem;
   margin-bottom: 30px;
   animation: pulse 2s infinite;
-  background: rgba(44, 24, 16, 0.6);
-  border-radius: 4px;
 }
 
 @keyframes pulse {
-  0% { opacity: 0.7; }
+  0%, 100% { opacity: 0.7; }
   50% { opacity: 1; }
-  100% { opacity: 0.7; }
 }
 
 .logo {
   font-family: "Cinzel", serif;
   font-size: 2.8rem;
   color: var(--gold);
-  margin-bottom: 10px;
   letter-spacing: 4px;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .tagline {
@@ -87,9 +140,6 @@ body::before {
   font-style: italic;
   font-size: 1.3rem;
   color: var(--gold);
-  margin-bottom: 25px;
-  display: block;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .divider {
@@ -97,14 +147,10 @@ body::before {
   height: 2px;
   background: var(--gold);
   margin: 25px auto;
-  opacity: 0.7;
 }
 
 .description {
-  font-size: 1.1rem;
-  line-height: 1.8;
   margin-bottom: 35px;
-  font-weight: 300;
   color: #e0d5c1;
 }
 
@@ -112,30 +158,16 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 450px;
-  margin: 0 auto 35px;
-}
-
-@media (min-width: 600px) {
-  .signup-form {
-    flex-direction: row;
-  }
+  margin-bottom: 35px;
 }
 
 input[type="email"] {
   flex: 1;
-  padding: 15px 20px;
+  padding: 15px;
   background: rgba(253, 245, 230, 0.05);
   border: 1px solid rgba(212, 175, 55, 0.5);
   color: var(--cream);
-  outline: none;
-  transition: all 0.3s;
   border-radius: 4px;
-}
-
-input[type="email"]:focus {
-  border-color: var(--gold);
-  background: rgba(253, 245, 230, 0.15);
 }
 
 button {
@@ -146,15 +178,7 @@ button {
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
   border-radius: 4px;
-  letter-spacing: 1px;
-}
-
-button:hover {
-  background: var(--accent-gold);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
 
 .social-icons {
@@ -166,26 +190,23 @@ button:hover {
 .social-icons a {
   color: var(--gold);
   font-size: 1.4rem;
-  transition: transform 0.3s, color 0.3s;
-}
-
-.social-icons a:hover {
-  transform: scale(1.2);
-  color: var(--cream);
 }
 
 footer {
   margin-top: 35px;
   font-size: 0.75rem;
   opacity: 0.7;
-  letter-spacing: 1px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .content-split, .content-split.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+  .small-divider {
+    margin: 0 auto 25px;
+  }
   .logo {
     font-size: 2.2rem;
-  }
-  .container {
-    padding: 40px 20px;
   }
 }
