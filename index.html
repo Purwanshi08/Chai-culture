@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming Soon | Brew the Royal Tradition</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --gold: #d4af37;
+        --deep-brown: #2c1810;
+        --cream: #fdf5e6;
+        --accent-gold: #c5a028;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--deep-brown);
+        color: var(--cream);
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+        opacity: 0.2;
+        z-index: -1;
+      }
+
+      .container {
+        text-align: center;
+        max-width: 800px;
+        padding: 40px 20px;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        background: rgba(44, 24, 16, 0.8);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        margin: 20px;
+      }
+
+      .logo {
+        font-family: "Cinzel", serif;
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 10px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+      }
+
+      .tagline {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: var(--gold);
+        margin-bottom: 30px;
+        display: block;
+      }
+
+      .divider {
+        width: 80px;
+        height: 2px;
+        background: var(--gold);
+        margin: 20px auto;
+      }
+
+      .description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 40px;
+        font-weight: 300;
+        color: #e0d5c1;
+      }
+
+      .status-badge {
+        display: inline-block;
+        padding: 8px 20px;
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        margin-bottom: 30px;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.6;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.6;
+        }
+      }
+
+      .signup-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 500px;
+        margin: 0 auto 40px;
+      }
+
+      @media (min-width: 600px) {
+        .signup-form {
+          flex-direction: row;
+        }
+      }
+
+      input[type="email"] {
+        flex: 1;
+        padding: 15px 20px;
+        background: transparent;
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        color: var(--cream);
+        outline: none;
+        transition: border 0.3s;
+      }
+
+      input[type="email"]:focus {
+        border-color: var(--gold);
+      }
+
+      button {
+        padding: 15px 30px;
+        background: var(--gold);
+        color: var(--deep-brown);
+        border: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background: var(--accent-gold);
+        transform: translateY(-2px);
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+      }
+
+      .social-icons a {
+        color: var(--gold);
+        font-size: 1.5rem;
+        transition: transform 0.3s;
+      }
+
+      .social-icons a:hover {
+        transform: scale(1.2);
+        color: var(--cream);
+      }
+
+      footer {
+        margin-top: 40px;
+        font-size: 0.8rem;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="status-badge">Launching Soon</div>
+
+      <div class="logo">Chai Culture</div>
+      <span class="tagline">"Brew the Royal Tradition"</span>
+
+      <div class="divider"></div>
+
+      <p class="description">
+        Experience the opulence of ancient Indian royalty in every sip. Our
+        premium instant tea premix blends exotic spices with the finest leaves,
+        curated for the modern connoisseur who values heritage.
+      </p>
+
+      <form class="signup-form" id="signupForm">
+        <input
+          type="email"
+          placeholder="Enter your email for an exclusive invite"
+          required
+        />
+        <button type="submit">Join the Circle</button>
+      </form>
+
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+
+      <footer>&copy; 2024 Chai Culture. All Rights Reserved.</footer>
+    </div>
+
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = this.querySelector("input").value;
+          alert(`Thank you! Royal updates will be sent to: ${email}`);
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
